@@ -1,0 +1,83 @@
+# ----------------------------------------
+# Java Build & Class Files
+# ----------------------------------------
+*.class
+*.jar
+*.war
+*.ear
+
+# Ignore compiled output directories
+/bin/
+/out/
+/target/
+
+# ----------------------------------------
+# Environment Variables (DO NOT COMMIT)
+# ----------------------------------------
+.env
+.env.*
+*.env
+
+# Example credentials file for database configs
+/db_credentials.txt
+
+# ----------------------------------------
+# IDE Files
+# ----------------------------------------
+
+# VS Code
+.vscode/
+
+# IntelliJ IDEA / JetBrains
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Eclipse
+.project
+.classpath
+.settings/
+bin/
+
+# NetBeans
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nbm/
+
+# ----------------------------------------
+# Operating System Files
+# ----------------------------------------
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux
+*~
+
+# ----------------------------------------
+# Logs & Temp Files
+# ----------------------------------------
+*.log
+*.tmp
+*.temp
+
+# ----------------------------------------
+# Node (if editor plugins create it)
+# ----------------------------------------
+node_modules/
+
+# ----------------------------------------
+# Screenshots Cache (optional)
+# ----------------------------------------
+/screenshots/*.tmp
