@@ -5,13 +5,14 @@
 ![Prettier Format](https://github.com/TheComputationalCore/sql-jdbc-mongodb-tasks/actions/workflows/prettier-format.yml/badge.svg)
 ![License](https://img.shields.io/badge/License-MIT-green.svg)
 
-A structured repository containing SQL queries, JDBC operations,
-and MongoDB tasks. The project demonstrates backend fundamentals
-using MySQL, Java, and MongoDB.
+A structured repository containing SQL queries, JDBC operations and MongoDB tasks.  
+The project demonstrates backend fundamentals using **MySQL**, **Java**, and **MongoDB**.
+
+---
 
 ## Project Structure
 
-```
+```text
 sql-jdbc-mongodb-tasks/
 ├── .github/workflows/
 ├── screenshots/
@@ -23,27 +24,24 @@ sql-jdbc-mongodb-tasks/
 └── LICENSE
 ```
 
+---
+
 ## Task 1 – SQL Queries
 
 These SQL queries run on the `Empl` table.
 
 ### Screenshots
 
-![Full Table](screenshots/1.1.png)
-
-![Salary ≥ 2200](screenshots/1.2.png)
-
-![NULL Commission](screenshots/1.3.png)
-
-![Not Between 2500 and 4000](screenshots/1.4.png)
-
-![No Manager](screenshots/1.5.png)
-
-![Third Letter A](screenshots/1.6.png)
-
-![Ends With T](screenshots/1.7.png)
-
+![Full Table](screenshots/1.1.png)  
+![Salary ≥ 2200](screenshots/1.2.png)  
+![NULL Commission](screenshots/1.3.png)  
+![Not Between 2500 and 4000](screenshots/1.4.png)  
+![No Manager](screenshots/1.5.png)  
+![Third Letter A](screenshots/1.6.png)  
+![Ends With T](screenshots/1.7.png)  
 ![SQL Script](screenshots/1.8.png)
+
+---
 
 ## Task 2 – JDBC (Java)
 
@@ -55,10 +53,14 @@ These SQL queries run on the `Empl` table.
 
 ![Connection Created](screenshots/2.6.png)
 
+---
+
 ## Task 3 – MongoDB Queries
 
 Queries performed on a product dataset.  
-See `MONGODB TASK.docx`.
+See **`MONGODB TASK.docx`**.
+
+---
 
 ## Run Instructions
 
@@ -83,6 +85,8 @@ java QuestionTwo
 ```bash
 mongoimport --db mydatabase   --collection products   --file product.json   --jsonArray
 ```
+
+---
 
 ## License
 
