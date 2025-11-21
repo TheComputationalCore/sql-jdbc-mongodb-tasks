@@ -5,18 +5,16 @@
 ![Prettier Format](https://github.com/TheComputationalCore/sql-jdbc-mongodb-tasks/actions/workflows/prettier-format.yml/badge.svg)
 ![License](https://img.shields.io/badge/License-MIT-green.svg)
 
-A clean, structured repository containing SQL queries, JDBC database operations, and MongoDB query tasks.  
-This project demonstrates backend fundamentals using **MySQL**, **Java JDBC**, and **MongoDB**.
+A structured repository with SQL queries, JDBC operations, and
+MongoDB tasks. This project uses MySQL, Java, and MongoDB.
 
----
-
-## 📁 Project Structure
+## Project Structure
 
 ```
 sql-jdbc-mongodb-tasks/
-│── .github/workflows/      # CI workflows (Java build, linting, formatting)
-│── screenshots/            # Visual outputs of SQL & Java executions
-│── 1.sql                   # SQL queries for Employee table
+│── .github/workflows/
+│── screenshots/
+│── 1.sql
 │── MyDatabaseConnection.java
 │── QuestionTwo.java
 │── MONGODB TASK.docx
@@ -24,13 +22,9 @@ sql-jdbc-mongodb-tasks/
 │── LICENSE
 ```
 
----
+## Task 1 — SQL Queries (MySQL)
 
-## 🧩 Task 1 — SQL Queries (MySQL)
-
-These SQL queries run on the `Empl` table to explore filtering, pattern matching, and NULL checks.
-
-### 📸 Screenshots
+### Screenshots
 
 #### Full Table Output
 
@@ -44,19 +38,19 @@ These SQL queries run on the `Empl` table to explore filtering, pattern matching
 
 ![NULL commission](screenshots/1.3.png)
 
-#### Salary NOT Between 2500 and 4000
+#### Salary Not Between 2500 and 4000
 
-![NOT between](screenshots/1.4.png)
+![Not between](screenshots/1.4.png)
 
-#### No Manager (mgr IS NULL)
+#### No Manager
 
 ![No manager](screenshots/1.5.png)
 
-#### Name with 'A' as 3rd Letter
+#### Name With 'A' as 3rd Letter
 
 ![Third letter A](screenshots/1.6.png)
 
-#### Name Ending with 'T'
+#### Name Ending With 'T'
 
 ![Ends with T](screenshots/1.7.png)
 
@@ -64,35 +58,23 @@ These SQL queries run on the `Empl` table to explore filtering, pattern matching
 
 ![SQL Script](screenshots/1.8.png)
 
----
+## Task 2 — JDBC Program
 
-## 🧩 Task 2 — JDBC Program (Java)
+### Connection Class
 
-`MyDatabaseConnection.java`  
-Establishes connection to MySQL using JDBC.  
 ![JDBC Connection](screenshots/2.5.png)
 
-**Output:**  
-![Connection Created](screenshots/2.6.png)
+### Output
 
-`QuestionTwo.java`  
-Creates a table and inserts employee records.  
-![Inserted Data](screenshots/2.5.png)
+![Output](screenshots/2.6.png)
 
----
+## Task 3 — MongoDB Queries
 
-## 🧩 Task 3 — MongoDB Queries
+Queries are included in `MONGODB TASK.docx`.
 
-Queries performed on `product.json` dataset (Day 1).
+## How to Run
 
-Includes filters, ranges, projections, and delete operations.  
-File: `MONGODB TASK.docx`
-
----
-
-## ▶️ How to Run
-
-### **SQL**
+### SQL
 
 ```sql
 mysql -u root -p
@@ -100,7 +82,7 @@ use tasks;
 source 1.sql;
 ```
 
-### **Java**
+### Java
 
 ```bash
 javac MyDatabaseConnection.java QuestionTwo.java
@@ -108,14 +90,12 @@ java MyDatabaseConnection
 java QuestionTwo
 ```
 
-### **MongoDB**
+### MongoDB
 
 ```bash
 mongoimport --db mydatabase --collection products --file product.json --jsonArray
 ```
 
----
+## License
 
-## 📜 License
-
-This project is licensed under the **MIT License**.
+MIT License.
