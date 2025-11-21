@@ -1,69 +1,64 @@
 package Task9;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.Statement;
 
-
 public class QuestionTwo {
-	public static void main(String[] args) {
-		Connection connection = MyDatabaseConnection.getConnection();
-		try {
-			Statement statement = connection.createStatement();
-			String insertQuery = "create table employee(empcode int, empname varchar(255),emppage int, empsalary int)";
-			 System.out.println("Table Created......");
-			int executeUpdate = statement.executeUpdate(insertQuery);
-			if(executeUpdate > 0) {
-				System.out.println("Record Inserted Successfully");
-			}else {
-				System.out.println("No Record placed yet......");
-			}
-			 String insertQuery1 = "insert into employee value(101, 'Jenny', 25 , 10000)";
-			int executeUpdate1 = statement.executeUpdate(insertQuery1);
-			if(executeUpdate1 > 0) {
-				System.out.println("Record 1 Inserted Successfully");
-			}else {
-				System.out.println("Internal Server Error");
-			}
-			 String insertQuery2 = "insert into employee value(102, 'Jacky', 30 , 20000)";
-				int executeUpdate2 = statement.executeUpdate(insertQuery2);
-				if(executeUpdate2 > 0) {
-					System.out.println("Record 2 Inserted Successfully");
-				}else {
-					System.out.println("Internal Server Error");
-				}
-				 String insertQuery3 = "insert into employee value(103, 'Joe', 20 , 40000)";
-					int executeUpdate3 = statement.executeUpdate(insertQuery3);
-					if(executeUpdate3 > 0) {
-						System.out.println("Record 3 Inserted Successfully");
-					}else {
-						System.out.println("Internal Server Error");
-					}
-					String insertQuery4 = "insert into employee value(104, 'John', 40 , 80000)";
-					int executeUpdate4 = statement.executeUpdate(insertQuery4);
-					if(executeUpdate4 > 0) {
-						System.out.println("Record 4 Inserted Successfully");
-					}else {
-						System.out.println("Internal Server Error");
-					}
-					String insertQuery5 = "insert into employee value(105, 'Shameer', 25 , 90000)";
-					int executeUpdate5 = statement.executeUpdate(insertQuery5);
-					if(executeUpdate5 > 0) {
-						System.out.println("Record 5 Inserted Successfully");
-					}else {
-						System.out.println("Internal Server Error");
-					}
-			statement.close();
-		}catch(Exception e) {
-			e.printStackTrace();
-		}finally {
-			try {
-				connection.close();
-			}catch(Exception e) {
-				e.printStackTrace();
-			}
-		}
-		
-	}
 
+    public static void main(String[] args) {
+
+        try (Connection connection = MyDatabaseConnection.getConnection()) {
+
+            if (connection == null) {
+                System.out.println("❌ Database connection failed. Exiting...");
+                return;
+            }
+
+            // STEP 1: Create the table safely
+            String createTableQuery = """
+                    CREATE TABLE IF NOT EXISTS employee (
+                        empcode INT PRIMARY KEY,
+                        empname VARCHAR(255),
+                        emppage INT,
+                        empsalary INT
+                    )
+                    """;
+
+            try (Statement statement = connection.createStatement()) {
+                statement.execute(createTableQuery);
+                System.out.println("✔ Table checked or created successfully.");
+            }
+
+            // STEP 2: Insert employee records using PreparedStatement
+            String insertQuery = 
+                "INSERT INTO employee (empcode, empname, emppage, empsalary) VALUES (?, ?, ?, ?)";
+
+            Object[][] employeeData = {
+                {101, "Jenny", 25, 10000},
+                {102, "Jacky", 30, 20000},
+                {103, "Joe", 20, 40000},
+                {104, "John", 40, 80000},
+                {105, "Shameer", 25, 90000}
+            };
+
+            try (PreparedStatement ps = connection.prepareStatement(insertQuery)) {
+
+                for (Object[] record : employeeData) {
+                    ps.setInt(1, (int) record[0]);
+                    ps.setString(2, (String) record[1]);
+                    ps.setInt(3, (int) record[2]);
+                    ps.setInt(4, (int) record[3]);
+
+                    ps.executeUpdate();
+                }
+
+                System.out.println("✔ All employee records inserted successfully.");
+            }
+
+        } catch (Exception e) {
+            System.err.println("❌ Error while inserting records:");
+            e.printStackTrace();
+        }
+    }
 }
-
