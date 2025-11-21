@@ -30,29 +30,38 @@ sql-jdbc-mongodb-tasks/
 
 These SQL queries run on the `Empl` table to explore filtering, pattern matching, and NULL checks.
 
-### 📸 Screenshots  
-#### Full Table Output  
+### 📸 Screenshots
+
+#### Full Table Output
+
 ![Full Table](screenshots/1.1.png)
 
-#### Salary ≥ 2200  
+#### Salary ≥ 2200
+
 ![Salary ≥ 2200](screenshots/1.2.png)
 
-#### Employees With NULL Commission  
+#### Employees With NULL Commission
+
 ![NULL commission](screenshots/1.3.png)
 
-#### Salary NOT Between 2500 and 4000  
+#### Salary NOT Between 2500 and 4000
+
 ![NOT between](screenshots/1.4.png)
 
-#### No Manager (mgr IS NULL)  
+#### No Manager (mgr IS NULL)
+
 ![No manager](screenshots/1.5.png)
 
-#### Name with 'A' as 3rd Letter  
+#### Name with 'A' as 3rd Letter
+
 ![Third letter A](screenshots/1.6.png)
 
-#### Name Ending with 'T'  
+#### Name Ending with 'T'
+
 ![Ends with T](screenshots/1.7.png)
 
-#### Final SQL Script  
+#### Final SQL Script
+
 ![SQL Script](screenshots/1.8.png)
 
 ---
@@ -84,6 +93,7 @@ File: `MONGODB TASK.docx`
 ## ▶️ How to Run
 
 ### **SQL**
+
 ```sql
 mysql -u root -p
 use tasks;
@@ -91,6 +101,7 @@ source 1.sql;
 ```
 
 ### **Java**
+
 ```bash
 javac MyDatabaseConnection.java QuestionTwo.java
 java MyDatabaseConnection
@@ -98,11 +109,13 @@ java QuestionTwo
 ```
 
 ### **MongoDB**
+
 ```bash
 mongoimport --db mydatabase --collection products --file product.json --jsonArray
 ```
 
 ---
 
-## 📜 License  
+## 📜 License
+
 This project is licensed under the **MIT License**.
